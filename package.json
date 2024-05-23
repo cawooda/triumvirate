@@ -1,0 +1,33 @@
+{
+  "name": "triumvirate",
+  "version": "1.0.0",
+  "description": "A multimedia forum",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cawooda/triumvirate.git"
+  },
+  "keywords": [
+    "media",
+    "discussion",
+    "social",
+    "likes"
+  ],
+  "author": "triumverate team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cawooda/triumvirate/issues"
+  },
+  "homepage": "https://github.com/cawooda/triumvirate#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "prettier": "3.2.5"
+  }
+}
