@@ -1,20 +1,12 @@
 const router = require('express').Router();
 
-const apiRoutes = require('./api');
-const homeRoutes = require('./homeRoutes');
-
-router.use('/',(req,res)=>{
-    console.log('controller reached');
-    res.send('controller reached');
-});
-
-router.use('/',homeRoutes);
-//router.use('/api',apiRoutes);
+const apiRoute = require('./api');
+const homeRoute = require('./homeRoute');
 
 
 
-router.all('*',(req,res)=>{
-    res.status(200).send("router index found");
-})
+router.use('/',homeRoute);
+router.use('/api',apiRoute);
+
 
 module.exports = router;

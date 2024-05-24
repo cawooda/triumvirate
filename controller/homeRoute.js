@@ -1,9 +1,13 @@
 const router = require('express').Router();
 
 //This is the basis for '/' routes delviering views from handlebars
-router.all('/',async (req,res) => {
+router.use('/',async (req,res) => {
     console.log('home route reached');
-    res.status(200).send('status OK and you have reached home route');
+    res.send('status OK and you have reached home route');
+})
+
+router.get('*',(req,res)=>{
+    console.log("* reached");
 })
 
 module.exports = router;

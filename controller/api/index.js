@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const modelNameRoute = require('./modelNameRoute');
+const blogRoute = require('./blogRoute');
 
 //This is the basis for '/api' routes
 // delviering queries to the database
@@ -8,9 +8,9 @@ const modelNameRoute = require('./modelNameRoute');
 //need and built in sequelize:
 //!!!!Comment the following line out to get started:!!!
 
-router.use('/modelObject', modelNameRoute);
+router.use('/blogs', blogRoute);
 
-router.get('/',async (req,res) =>{
+router.use('/',async (req,res) =>{
     console.log('api reached');
     res.status(200).send('looks good from api')
 });
