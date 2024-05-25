@@ -6,13 +6,12 @@ const router = require('express').Router();
 //!!!!!UNCOMMENT BELOW TO GET STARTED WIHT MODELS
 //const { ModelName } = require('../../models');
 
-const modelName = 'modelName';
+const modelName = 'blog';
 
 router.get('/', async (req,res) => {
     const body = req.body;
-    //simple test response setup
     const response = {
-        id:'2',
+        id:'1',
         testResponse: true
     };
 
