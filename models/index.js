@@ -1,6 +1,8 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
+const Chat = require('./Chat');
+const Message = require('./Message');
 
 // one-to-many relationship between User and Post
 User.hasMany(Post, {
@@ -27,6 +29,21 @@ Post.hasMany(Comment, {
 });
 Comment.belongsTo(Post, {
 	foreignKey: 'post_id',
+});
+
+// one-to-many relationship between User and Chat (user_a)
+User.hasMany(Chat, {
+	foreignKey: 'user_a'
+});
+Chat.belongsTo(User, {
+	foreignKey: 'user_a',
+});
+// one-to-many relationship between User and Chat (user_b)
+User.hasMany(Chat, {
+	foreignKey: 'user_b'
+});
+Chat.belongsTo(User, {
+	foreignKey: 'user_b',
 });
 
 module.exports = {
