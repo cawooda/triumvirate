@@ -35,7 +35,7 @@ Chat.init(
 		timestamps: false,
 		freezeTableName: true,
 		underscored: true,
-		modelName: 'media',
+		modelName: 'chat',
 	},
 );
 
