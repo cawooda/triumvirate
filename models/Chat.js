@@ -28,7 +28,7 @@ Chat.init(
 		// 		model: 'user',
 		// 		key: 'id'
 		// 	},
-		// },
+		// },   -This can and will be handled by sequelize in index hasMany
 	},
 	{
 		sequelize,
