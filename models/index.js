@@ -46,6 +46,15 @@ Chat.belongsTo(User, {
 	foreignKey: 'user_b',
 });
 
+// one-to-many relationship between Chat and Message
+Chat.hasMany(Message, {
+	foreignKey: 'chat_id',
+	onDelete: 'CASCADE',
+});
+Message.belongsTo(Chat, {
+	foreignKey: 'chat_id',
+});
+
 module.exports = {
 	User,
 	Post,
