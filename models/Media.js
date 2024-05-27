@@ -33,6 +33,14 @@ Media.init(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
+		post_id: {
+			type: DataTypes.INTEGER,
+			allowNull: true,
+			references: {
+				model: 'post',
+				key: 'id',
+			},
+		},
 	},
 	{
 		sequelize,
