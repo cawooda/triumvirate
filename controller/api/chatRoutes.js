@@ -1,18 +1,20 @@
 const router = require('express').Router();
-const {Post,Comment,User} = require('../../models');
+const {Chat,User} = require('../../models');
 
-const modelName = 'Post';
+const modelName = 'Chat';
 
 router.get('/', async (req,res) => {
     try {
-        const postData = await Post.findAll({
-            include: [Comment,User]
+        const chatData = await Chat.findAll({
+            include: [{ model: User, as: 'user_A'}, { model: User, as: 'user_B'}]
         });
         console.log(`Get Requesting all ${modelName}`);
-        res.status(200).json(postData);
+        res.status(200).json(chatData);
     } catch (error) {
+        console.log(error);
         console.log(`ERROR: Get Requesting all ${modelName} and we've sent back the body you sent us`)
-        res.status(400).json(body);
+        res.status(500).json(req.body);
+
     }
     
 });
@@ -20,14 +22,14 @@ router.get('/', async (req,res) => {
 router.get('/:id', async (req,res) => {
     const id = req.params.id;
     try {
-        const post = await Post.findByPk(id,{
-            include: Comment
+        const chat = await Chat.findByPk(id,{
+            include: User
         });
         console.log(`Get Requesting all ${modelName} by id ${id}`);
-        res.status(200).json(post);
+        res.status(200).json(chat);
     } catch (error) {
         console.log(`ERROR: Get Requesting ${modelName} by id ${id} and we've sent back the body you sent us`)
-        res.status(400).json(body);
+        res.status(500).json(body);
     }
 });
 
@@ -36,31 +38,41 @@ router.put('/:id', async (req,res) => {
     const body = req.body;
 
     try {
-        const post = await Post.update(body);
+        const chat = await Chat.update(body);
 
         console.log(`updating ${modelName} by id ${id} with ${body}`);
-        res.status(200).json(post);
+        res.status(200).json(chat);
     } catch (error) {
         console.log(`ERROR: Get Requesting update to ${modelName} and we've sent back the body you sent us`)
-        res.status(400).json(body);
+        res.status(500).json(body);
     }
 })
 
 router.post('/', async (req,res) => {
     const body = req.body;
     try {
-        Post.create(body);
+        Chat.create(body);
         console.log(`creating new  ${modelName} from ${body}`);
         res.status(200).json(body);
     } catch (error) {
         console.log(`ERROR: Get Requesting all ${modelName} and we've sent back the body you sent us`)
-        res.status(400).json(body);
+        res.status(500).json(body);
     }
     
 })
 
-router.delete('/deleteSomething/:id', async (req,res) => {
-
+router.delete('/:id', async (req,res) => {
+    const id = req.params.id;
+    try {
+        await Chat.destroy({
+            where: {
+                id
+            }
+        })
+    } catch (error) {
+        console.log(`ERROR: DELETING ${modelName} with id ${id} and we've sent back the body you sent us`)
+        res.status(500).json(body);
+    }
 })
 
 

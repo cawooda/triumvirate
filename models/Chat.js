@@ -13,22 +13,22 @@ Chat.init(
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		user_a: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			references: {
-				model: 'user',
-				key: 'id',
-			},
-		},
-		user_b: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			references: {
-				model: 'user',
-				key: 'id',
-			},
-		},
+		// user_a: {
+		// 	type: DataTypes.INTEGER,
+		// 	allowNull: false,
+		// 	references: {
+		// 		model: 'user',
+		// 		key: 'id'
+		// 	},
+		// },
+		// user_b: {
+		// 	type: DataTypes.INTEGER,
+		// 	allowNull: false,
+		// 	references: {
+		// 		model: 'user',
+		// 		key: 'id'
+		// 	},
+		// },
 	},
 	{
 		sequelize,

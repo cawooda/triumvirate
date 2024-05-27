@@ -47,13 +47,18 @@ User.hasMany(Chat, {
 });
 Chat.belongsTo(User, {
 	foreignKey: 'user_a',
+	as: 'user_A'
 });
+//
+
+
 // one-to-many relationship between User and Chat (user_b)
 User.hasMany(Chat, {
-	foreignKey: 'user_b',
+	foreignKey: 'user_b'	
 });
 Chat.belongsTo(User, {
 	foreignKey: 'user_b',
+	as: 'user_B'
 });
 
 // one-to-many relationship between Chat and Message

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const postRoutes = require('./postRoutes');
-//const chatRoutes = require('./chatRoutes');
+const chatRoutes = require('./chatRoutes');
 //const commentRoutes = require('./commentRoutes');
 //const mediaRoutes = require('./mediaRoutes');
 //const messageRoutes = require('./messageRoutes');
@@ -9,6 +9,7 @@ const postRoutes = require('./postRoutes');
 
 
 router.use('/posts',postRoutes);
+router.use('/chats',chatRoutes);
 
 // router.use('/',async (req,res) =>{
 //     console.log('api reached');
