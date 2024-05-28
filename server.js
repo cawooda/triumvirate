@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const express = require('express')
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const path = require('path');
@@ -15,5 +15,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 app.listen(PORT, () => {
-  console.log(`PopChat server listening in on http://localhost:${PORT}`)
-})
+	console.log(`PopChat server listening in on http://localhost:${PORT}`);
+});

@@ -6,11 +6,11 @@ class Comment extends Model {
 	// instance method to increment likes
 	incLikes() {
 		this.likes++;
-	};
+	}
 	// instance method to decrement likes
 	decLikes() {
 		this.likes--;
-	};
+	}
 }
 
 // initialise Comment model
@@ -57,7 +57,7 @@ Comment.init(
 		freezeTableName: true,
 		underscored: true,
 		modelName: 'comment',
-	}
+	},
 );
 
 module.exports = Comment;

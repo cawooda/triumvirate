@@ -27,7 +27,7 @@ Message.init(
 			allowNull: false,
 			references: {
 				model: 'user',
-				key: 'id'
+				key: 'id',
 			},
 		},
 		to_user: {
@@ -35,7 +35,7 @@ Message.init(
 			allowNull: false,
 			references: {
 				model: 'user',
-				key: 'id'
+				key: 'id',
 			},
 		},
 		chat_id: {
@@ -53,7 +53,7 @@ Message.init(
 		freezeTableName: true,
 		underscored: true,
 		modelName: 'message',
-	}
+	},
 );
 
 module.exports = Message;
