@@ -7,9 +7,8 @@ const chatRoutes = require('./chatRoutes');
 //const messageRoutes = require('./messageRoutes');
 //const userRoutes = require('./userRoutes');
 
-
-router.use('/posts',postRoutes);
-router.use('/chats',chatRoutes);
+router.use('/posts', postRoutes);
+router.use('/chats', chatRoutes);
 
 // router.use('/',async (req,res) =>{
 //     console.log('api reached');
