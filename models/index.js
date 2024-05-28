@@ -43,14 +43,12 @@ Media.belongsTo(Post, {
 
 // one-to-many relationship between User and Chat (user_a)
 User.hasMany(Chat, {
-	foreignKey: 'user_a'
+	// foreignKey: 'user_a',
 });
 Chat.belongsTo(User, {
 	// foreignKey: 'user_a',    --not nececessary
-	as: 'user_a'
+	as: 'user_a',
 });
-//
-
 
 // one-to-many relationship between User and Chat (user_b)
 User.hasMany(Chat, {
@@ -58,7 +56,7 @@ User.hasMany(Chat, {
 });
 Chat.belongsTo(User, {
 	// foreignKey: 'user_b',
-	as: 'user_b'
+	as: 'user_b',
 });
 
 // one-to-many relationship between Chat and Message

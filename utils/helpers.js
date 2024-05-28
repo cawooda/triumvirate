@@ -1,3 +1,3 @@
-module.exports = ()=>{
-    return "hello helper";
+module.exports = () => {
+	return 'hello helper';
 };
