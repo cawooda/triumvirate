@@ -1,13 +1,16 @@
 const router = require('express').Router();
+const { Post, Comment, User } = require('../models');
 
 //This is the basis for '/' routes delviering views from handlebars
-router.use('/', async (req, res) => {
+router.get('/', async (req, res) => {
 	console.log('home route reached');
-	res.send('status OK and you have reached home route');
-});
+	const postData = await Post.findAll({
+		include: [Comment, User],
+	});
 
-router.get('*', (req, res) => {
-	console.log('* reached');
+	console.log(postData);
+	//res.send('route home reached');
+	res.render('posts', { postData });
 });
 
 module.exports = router;
