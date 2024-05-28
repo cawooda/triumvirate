@@ -48,7 +48,7 @@ Media.init(
 		freezeTableName: true,
 		underscored: true,
 		modelName: 'media',
-	}
+	},
 );
 
 module.exports = Media;

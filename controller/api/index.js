@@ -10,9 +10,9 @@ const blogRoute = require('./blogRoute');
 
 router.use('/blogs', blogRoute);
 
-router.use('/',async (req,res) =>{
-    console.log('api reached');
-    res.status(200).send('looks good from api')
+router.use('/', async (req, res) => {
+	console.log('api reached');
+	res.status(200).send('looks good from api');
 });
 
 // eg User Route, Post Route, etc

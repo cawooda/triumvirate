@@ -18,7 +18,7 @@ Chat.init(
 			allowNull: false,
 			references: {
 				model: 'user',
-				key: 'id'
+				key: 'id',
 			},
 		},
 		user_b: {
@@ -26,7 +26,7 @@ Chat.init(
 			allowNull: false,
 			references: {
 				model: 'user',
-				key: 'id'
+				key: 'id',
 			},
 		},
 	},

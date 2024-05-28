@@ -6,15 +6,15 @@ class Post extends Model {
 	// instance method to increment views
 	incViews() {
 		this.views++;
-	};
+	}
 	// instance method to increment likes
 	incLikes() {
 		this.likes++;
-	};
+	}
 	// instance method to decrement likes
 	decLikes() {
 		this.likes--;
-	};
+	}
 }
 
 // initialise Post model
@@ -62,7 +62,7 @@ Post.init(
 		timestamps: false,
 		freezeTableName: true,
 		modelName: 'post',
-	}
+	},
 );
 
 module.exports = Post;
