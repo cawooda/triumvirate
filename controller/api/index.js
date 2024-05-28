@@ -10,10 +10,10 @@ const chatRoutes = require('./chatRoutes');
 router.use('/posts', postRoutes);
 router.use('/chats', chatRoutes);
 
-// router.use('/',async (req,res) =>{
-//     console.log('api reached');
-//     res.status(200).send('looks good from api')
-// });
+router.use('/', async (req, res) => {
+	console.log('api reached');
+	res.status(200).send('looks good from api');
+});
 
 // eg User Route, Post Route, etc
 
