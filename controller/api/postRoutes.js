@@ -12,7 +12,7 @@ router.get('/', async (req,res) => {
         res.status(200).json(postData);
     } catch (error) {
         console.log(`ERROR: Get Requesting all ${modelName} and we've sent back the body you sent us`)
-        res.status(500).json(body);
+        res.status(500).json(error);
     }
     
 });
@@ -27,7 +27,7 @@ router.get('/:id', async (req,res) => {
         res.status(200).json(post);
     } catch (error) {
         console.log(`ERROR: Get Requesting ${modelName} by id ${id} and we've sent back the body you sent us`)
-        res.status(500).json(body);
+        res.status(500).json(error);
     }
 });
 
@@ -42,7 +42,7 @@ router.put('/:id', async (req,res) => {
         res.status(200).json(post);
     } catch (error) {
         console.log(`ERROR: Get Requesting update to ${modelName} and we've sent back the body you sent us`)
-        res.status(500).json(body);
+        res.status(500).json(error);
     }
 })
 
@@ -54,7 +54,7 @@ router.post('/', async (req,res) => {
         res.status(200).json(body);
     } catch (error) {
         console.log(`ERROR: Get Requesting all ${modelName} and we've sent back the body you sent us`)
-        res.status(500).json(body);
+        res.status(500).json(error);
     }
     
 })
@@ -69,7 +69,7 @@ router.delete('/:id', async (req,res) => {
         })
     } catch (error) {
         console.log(`ERROR: DELETING ${modelName} with id ${id} and we've sent back the body you sent us`)
-        res.status(500).json(body);
+        res.status(500).json(error);
     }
 })
 
