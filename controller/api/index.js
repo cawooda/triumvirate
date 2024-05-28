@@ -1,19 +1,20 @@
 const router = require('express').Router();
 
-const blogRoute = require('./blogRoute');
+const postRoutes = require('./postRoutes');
+const chatRoutes = require('./chatRoutes');
+//const commentRoutes = require('./commentRoutes');
+//const mediaRoutes = require('./mediaRoutes');
+//const messageRoutes = require('./messageRoutes');
+//const userRoutes = require('./userRoutes');
 
-//This is the basis for '/api' routes
-// delviering queries to the database
-//It will be configured into the following routes once they are
-//need and built in sequelize:
-//!!!!Comment the following line out to get started:!!!
 
-router.use('/blogs', blogRoute);
+router.use('/posts',postRoutes);
+router.use('/chats',chatRoutes);
 
-router.use('/', async (req, res) => {
-	console.log('api reached');
-	res.status(200).send('looks good from api');
-});
+// router.use('/',async (req,res) =>{
+//     console.log('api reached');
+//     res.status(200).send('looks good from api')
+// });
 
 // eg User Route, Post Route, etc
 

@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS popchat_db;
+
+CREATE DATABASE popchat_db;
