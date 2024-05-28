@@ -47,7 +47,7 @@ User.hasMany(Chat, {
 });
 Chat.belongsTo(User, {
 	// foreignKey: 'user_a',    --not nececessary
-	as: 'user_A'
+	as: 'user_a'
 });
 //
 
@@ -58,7 +58,7 @@ User.hasMany(Chat, {
 });
 Chat.belongsTo(User, {
 	// foreignKey: 'user_b',
-	as: 'user_B'
+	as: 'user_b'
 });
 
 // one-to-many relationship between Chat and Message
