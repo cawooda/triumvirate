@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
 
 	console.log(postData);
 	//res.send('route home reached');
-	res.render('posts', { postData });
+	res.render('posts', { postData, logged_in: req.session.logged_in });
 });
 
 // /signup route to render signup page
