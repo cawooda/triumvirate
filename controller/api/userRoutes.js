@@ -4,6 +4,8 @@ const { User } = require('../../models');
 // /api/users/signup create new user
 router.post('/signup', async (req, res) => {
 	try {
+		console.log('/signup reached');
+
 		// create new user with data from req.body
 		const newUser = await User.create({
 			username: req.body.username,
@@ -63,3 +65,5 @@ router.post('/login', async (req, res) => {
 		});
 	} catch (error) {}
 });
+
+module.exports = router;
