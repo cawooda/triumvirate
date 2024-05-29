@@ -43,6 +43,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-app.listen(PORT, () => {
-	console.log(`PopChat server listening in on http://localhost:${PORT}`);
-});
+// sync database and start listening
+const main = async () => {
+	await sequelize.sync({ force: false });
+
+	app.listen(PORT, () => {
+		console.log(`PopChat server listening in on http://localhost:${PORT}`);
+	});
+}
+
+main();
