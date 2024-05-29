@@ -11,6 +11,17 @@
 
 	</head>
 	<body>
+		{{!-- if user is logged in render logout button --}}
+		{{!-- else render logout button --}}
+		{{#if logged_in}}
+		<button type="button" id="logout-btn">Logout</button>
+		<script src="/js/logoutBtn.js"></script>
+		{{else}}
+		<button type="button" id="login-btn">Login</button>
+		<script src="/js/loginBtn.js"></script>
+		{{/if}}
+
 		{{{body}}}
+
 	</body>
 </html>
