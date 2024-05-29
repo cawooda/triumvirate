@@ -13,4 +13,20 @@ router.get('/', async (req, res) => {
 	res.render('posts', { postData });
 });
 
+// /signup route to render signup page
+router.get('/signup', async (req, res) => {
+	try {
+		// if user already logged in redirect to homepage
+		if (req.session.logged_in) {
+			res.redirect('/');
+			return;
+		}
+
+		// otherwise render signup page
+		res.status(200).render('signup');
+	} catch (error) {
+		res.status(500).json(error);
+	}
+});
+
 module.exports = router;
