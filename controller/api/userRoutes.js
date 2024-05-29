@@ -66,4 +66,23 @@ router.post('/login', async (req, res) => {
 	} catch (error) {}
 });
 
+// /api/users/logout logout user
+router.post('/logout', async (req, res) => {
+	try {
+		// if logged in kill session then redirect to homepage
+		if (req.session.logged_in) {
+			req.session.destroy(() => {
+				res.status(204).redirect('/');
+			});
+		} else {
+			// else send error
+			res.status(404).json({
+				message: 'User is not logged in.'
+			});
+		}
+	} catch (error) {
+		res.status(500).json(error);
+	}
+});
+
 module.exports = router;
