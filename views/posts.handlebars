@@ -20,6 +20,13 @@
       <!--this needs a helper to display the date time correctly. -->
       <time class="content is-small is-pulled-right">{{formatDate post.date_created}}</time>
     </div>
+    <h6>Comments</h6>
+    <div id="comments-{{post.id}}" class="content is-small">
+      {{#each post.comments}}
+        <p>{{this.content}}</p>
+      {{/each}}
+    
+    </div>
   </div>
   <footer class="card-footer">
     <a href="/posts/{{post.id}}" id="like-post-{{post.id}}" class="card-footer-item">Like</a>
