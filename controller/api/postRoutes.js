@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
 
+// import multer upload utility
+const upload = require('../../utils/upload');
+
 const modelName = 'Post';
 
 router.get('/', async (req, res) => {
@@ -79,6 +82,20 @@ router.delete('/:id', async (req, res) => {
 		);
 		res.status(500).json(error);
 	}
+});
+
+// /api/posts/upload route to upload media to filesystem
+router.post('/upload', upload.single('upload'), (req, res) => {
+	console.log(req.body);
+	res.send('Uploaded successfully!');
+	// upload(req, res, (err) => {
+	// 	if (err) {
+	// 		res.status(500).json(error);
+	// 	} else {
+	// 		console.log(req.file);
+	// 		res.status(200).json(req.file);
+	// 	}
+	// });
 });
 
 module.exports = router;
