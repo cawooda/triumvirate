@@ -6,6 +6,7 @@
 	"scripts": {
 		"start": "node server.js",
 		"test": "jest",
+		"seed": "node seed/seed.js",
 		"watch": "nodemon server.js"
 	},
 	"repository": {
@@ -26,6 +27,7 @@
 	"homepage": "https://github.com/cawooda/triumvirate#readme",
 	"dependencies": {
 		"bcrypt": "^5.1.1",
+		"dayjs": "^1.11.11",
 		"dotenv": "^16.4.5",
 		"express": "^4.19.2",
 		"express-handlebars": "^7.1.2",

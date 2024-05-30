@@ -4,10 +4,11 @@ const express = require('express');
 const app = express();
 const PORT = process.env.port || 3001;
 const path = require('path');
+const helpers = require('./utils/helpers');
 
 //handlebars
 const expressHandlebars = require('express-handlebars');
-const handlebars = expressHandlebars.create({});
+const handlebars = expressHandlebars.create({ helpers });
 
 const routes = require('./controller');
 // const helpers = require('./utils/helpers');
@@ -18,7 +19,7 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 

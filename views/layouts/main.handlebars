@@ -7,9 +7,28 @@
 			rel='stylesheet'
 			href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'
 		/>
-		<link rel='stylesheet' href='style.css' />
+		<link
+			rel='stylesheet'
+			href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
+		/>
+		
+	<style>
+    .no-border {
+      	border: none !important;
+    	}
+  </style>
 
 	</head>
+	<header>
+		<nav class="navbar has-background-primary is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="https://bulma.io">
+				<img class='is-medium' src='assets/images/popchat.png'>
+				</a>
+			</div>
+  		</nav>
+		{{> menu-details}}
+	</header>
 	<body>
 		{{{body}}}
 	</body>
