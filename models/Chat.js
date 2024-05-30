@@ -13,26 +13,25 @@ Chat.init(
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		// user_a: {
-		// 	type: DataTypes.INTEGER,
-		// 	allowNull: false,
-		// 	references: {
-		// 		model: 'user',
-		// 		key: 'id'
-		// 	},
-		// },
-		// user_b: {
-		// 	type: DataTypes.INTEGER,
-		// 	allowNull: false,
-		// 	references: {
-		// 		model: 'user',
-		// 		key: 'id'
-		// 	},
-		// },   -This can and will be handled by sequelize in index hasMany
+		user_a: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			references: {
+				model: 'user',
+				key: 'id',
+			},
+		},
+		user_b: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			references: {
+				model: 'user',
+				key: 'id',
+			},
+		},
 	},
 	{
 		sequelize,
-		timestamps: false,
 		freezeTableName: true,
 		underscored: true,
 		modelName: 'chat',
