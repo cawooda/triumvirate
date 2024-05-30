@@ -50,7 +50,6 @@ Chat.belongsTo(User, {
 	as: 'user_a',
 });
 
-
 // one-to-many relationship between User and Chat (user_b)
 User.hasMany(Chat, {
 	// foreignKey: 'user_b'	   --not nececessary

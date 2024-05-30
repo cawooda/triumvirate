@@ -4,11 +4,12 @@ const express = require('express');
 const app = express();
 const PORT = process.env.port || 3001;
 const path = require('path');
+const helpers = require('./utils/helpers');
 const session = require('express-session');
 
 //handlebars
 const expressHandlebars = require('express-handlebars');
-const handlebars = expressHandlebars.create({});
+const handlebars = expressHandlebars.create({ helpers });
 
 const routes = require('./controller');
 // const helpers = require('./utils/helpers');

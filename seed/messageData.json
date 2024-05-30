@@ -9,7 +9,7 @@
 	{
 		"content": "This is a message 2.",
 		"date_created": "2024-05-27T10:27:03.734648",
-		"from_user": 16,
+		"from_user": 6,
 		"to_user": 14,
 		"chat_id": 16
 	},
@@ -30,7 +30,7 @@
 	{
 		"content": "This is a message 5.",
 		"date_created": "2024-05-27T10:27:03.734660",
-		"from_user": 15,
+		"from_user": 5,
 		"to_user": 8,
 		"chat_id": 12
 	},
@@ -45,27 +45,27 @@
 		"content": "This is a message 7.",
 		"date_created": "2024-05-27T10:27:03.734667",
 		"from_user": 8,
-		"to_user": 19,
+		"to_user": 9,
 		"chat_id": 8
 	},
 	{
 		"content": "This is a message 8.",
 		"date_created": "2024-05-27T10:27:03.734671",
 		"from_user": 1,
-		"to_user": 19,
+		"to_user": 9,
 		"chat_id": 14
 	},
 	{
 		"content": "This is a message 9.",
 		"date_created": "2024-05-27T10:27:03.734675",
 		"from_user": 1,
-		"to_user": 17,
+		"to_user": 7,
 		"chat_id": 5
 	},
 	{
 		"content": "This is a message 10.",
 		"date_created": "2024-05-27T10:27:03.734679",
-		"from_user": 20,
+		"from_user": 2,
 		"to_user": 3,
 		"chat_id": 7
 	},
@@ -100,14 +100,14 @@
 	{
 		"content": "This is a message 15.",
 		"date_created": "2024-05-27T10:27:03.734699",
-		"from_user": 17,
-		"to_user": 17,
+		"from_user": 3,
+		"to_user": 7,
 		"chat_id": 6
 	},
 	{
 		"content": "This is a message 16.",
 		"date_created": "2024-05-27T10:27:03.734703",
-		"from_user": 15,
+		"from_user": 5,
 		"to_user": 10,
 		"chat_id": 19
 	},
@@ -129,7 +129,7 @@
 		"content": "This is a message 19.",
 		"date_created": "2024-05-27T10:27:03.734714",
 		"from_user": 12,
-		"to_user": 20,
+		"to_user": 2,
 		"chat_id": 18
 	},
 	{
