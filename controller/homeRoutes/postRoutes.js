@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
 	console.log('posts', posts);
 	//res.send('route home reached');
-	res.render('posts', { posts });
+	res.render('posts', { posts, logged_in: req.session.logged_in });
 });
 
 module.exports = router;
