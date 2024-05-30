@@ -2,12 +2,14 @@ const router = require('express').Router();
 
 const postRoutes = require('./postRoutes');
 const chatRoutes = require('./chatRoutes');
-//const commentRoutes = require('./commentRoutes');
+commentRoutes = require('./commentRoutes');
 //const mediaRoutes = require('./mediaRoutes');
 //const messageRoutes = require('./messageRoutes');
 const userRoutes = require('./userRoutes');
 
 router.use('/posts', postRoutes);
+router.use('/comments', commentRoutes);
+
 router.use('/chats', chatRoutes);
 router.use('/users', userRoutes);
 

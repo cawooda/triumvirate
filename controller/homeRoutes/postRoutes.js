@@ -3,17 +3,22 @@ const { Post, Comment, User } = require('../../models');
 
 const modelName = 'Post';
 
-router.get('/', async (req, res) => {
-	console.log('home route reached');
-	const postData = await Post.findAll({
-		include: [Comment, User],
+router.get('/:id', async (req, res) => {
+	console.log('req.params.id', req.params.id);
+	const postId = req.params.id;
+
+	const postData = await Post.findOne({
+		where: { id: postId },
+		include: Comment,
 	});
 
-	const posts = postData.map((post) => post.get({ plain: true }));
+	const post = postData.get({ plain: true });
 
-	console.log('posts', posts);
-	//res.send('route home reached');
-	res.render('posts', { posts, logged_in: req.session.logged_in });
+	res.render('post', {
+		post,
+		logged_in: req.session.logged_in,
+		user_id: req.session.user_id,
+	});
 });
 
 module.exports = router;
