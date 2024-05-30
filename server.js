@@ -12,7 +12,6 @@ const expressHandlebars = require('express-handlebars');
 const handlebars = expressHandlebars.create({ helpers });
 
 const routes = require('./controller');
-// const helpers = require('./utils/helpers');
 
 //handlebars
 app.engine('handlebars', handlebars.engine);
@@ -26,14 +25,14 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
 	secret: process.env.SESSION_SECRET,
 	cookie: {
-		maxAge: 1000 * 60 * 60
+		maxAge: 1000 * 60 * 60,
 	},
 	resave: false,
 	saveUninitialized: true,
 	store: new SequelizeStore({
 		db: sequelize,
 	}),
-}
+};
 
 // use session middleware with the sess options object
 app.use(session(sess));
@@ -51,6 +50,6 @@ const main = async () => {
 	app.listen(PORT, () => {
 		console.log(`PopChat server listening in on http://localhost:${PORT}`);
 	});
-}
+};
 
 main();

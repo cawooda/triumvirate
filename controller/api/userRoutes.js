@@ -19,6 +19,7 @@ router.post('/signup', async (req, res) => {
 
 		res.status(200).json(newUser);
 	} catch (error) {
+		console.log('user route error', error);
 		res.status(500).json(error);
 	}
 });
@@ -77,7 +78,7 @@ router.post('/logout', async (req, res) => {
 		} else {
 			// else send error
 			res.status(404).json({
-				message: 'User is not logged in.'
+				message: 'User is not logged in.',
 			});
 		}
 	} catch (error) {
