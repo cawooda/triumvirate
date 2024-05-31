@@ -14,27 +14,37 @@ const createPostHandler = async (event) => {
 
 	// form validation
 	if (title && content) {
-		// send fetch POST request to /api/posts
+		// // send fetch POST request to /api/posts
+		// const postResponse = await fetch('/api/posts', {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify({
+		// 		title,
+		// 		content,
+		// 	}),
+		// });
 
-		// add text fields for title and content
-		// formData.append('title', title);
-		// formData.append('content', content);
+		// construct a FormData instance
+		const formData = new FormData();
 
-		// if file uploaded append file to a FormData instance and send in the body
-		// of a fetch POST request to the upload endpoint
+		// append title and content to formData
+		formData.append('title', title);
+		formData.append('content', content);
+
+		// if file uploaded append file to formData instance
 		if (file) {
-			// construct a FormData instance
-			const formData = new FormData();
 			formData.append('upload', file);
-
-			// send fetch POST request to /api/posts/upload
-			const uploadResponse = await fetch('/api/posts/upload', {
-				method: 'POST',
-				body: formData,
-			});
-
-			console.log(uploadResponse);
 		}
+
+		// send fetch POST request to /api/posts
+		const uploadResponse = await fetch('/api/posts', {
+			method: 'POST',
+			body: formData,
+		});
+
+		console.log(uploadResponse);
 	}
 };
 
