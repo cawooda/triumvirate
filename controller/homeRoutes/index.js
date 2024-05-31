@@ -11,7 +11,6 @@ router.use('/chats', chatRoutes);
 router.use('/users', userRoutes);
 
 router.get('/', async (req, res) => {
-	console.log('home route reached');
 	const postData = await Post.findAll({
 		include: [Comment, User],
 	});

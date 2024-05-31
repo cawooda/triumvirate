@@ -6,19 +6,6 @@ const isLoggedIn = require('../../utils/isLoggedIn');
 
 const modelName = 'Post';
 
-// router.get('/', async (req, res) => {
-// 	console.log('home route reached');
-// 	const postData = await Post.findAll({
-// 		include: [Comment, User],
-// 	});
-
-// 	const posts = postData.map((post) => post.get({ plain: true }));
-
-// 	console.log('posts', posts);
-// 	//res.send('route home reached');
-// 	res.render('posts', { posts, logged_in: req.session.logged_in });
-// });
-
 // /posts/create-post route to render add new post form
 router.get('/create-post', isLoggedIn, async (req, res) => {
 	try {
@@ -29,6 +16,24 @@ router.get('/create-post', isLoggedIn, async (req, res) => {
 	} catch (error) {
 		res.status(500).json(error);
 	}
+});
+
+router.get('/:id', async (req, res) => {
+	console.log('req.params.id', req.params.id);
+	const postId = req.params.id;
+
+	const postData = await Post.findOne({
+		where: { id: postId },
+		include: Comment,
+	});
+
+	const post = postData.get({ plain: true });
+
+	res.render('post', {
+		post,
+		logged_in: req.session.logged_in,
+		user_id: req.session.user_id,
+	});
 });
 
 module.exports = router;

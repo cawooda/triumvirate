@@ -23,6 +23,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
 	const id = req.params.id;
+
 	try {
 		const post = await Post.findByPk(id, {
 			include: Comment,
