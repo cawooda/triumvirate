@@ -2,39 +2,56 @@
 
 <div class='container'>
 	{{#each posts as |post|}}
-  <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">{{post.title}}</p>
-    <button class='button fa-solid fa-heart is-small'>{{post.likes}} likes</button>
-    <button class='button fa-solid fa-eye is-small'>{{post.views}} views</button>
-    {{!-- <button class="card-header-icon" aria-label="more options">
-      <span class="icon">
-        <i class="fas fa-angle-down" aria-hidden="true"></i>
-      </span>
-    </button> --}}
-  </header>
-  <div class="card-content">
-    <div class="content">
-      {{post.content}}
-      <br />
-      <!--this needs a helper to display the date time correctly. -->
-      <time class="content is-small is-pulled-right">{{formatDate post.date_created}}</time>
-    </div>
-  </div>
-  <footer class="card-footer">
-    <a href="/posts/{{post.id}}" id="like-post-{{post.id}}" class="card-footer-item">Like</a>
-    <a href="#" id="author-post-{{post.id}}" class="card-footer-item">See Author</a>
-    <a href="#" is="report-post-{{post.id}}" class="card-footer-item">Report</a>
-  </footer>
+		<div class='card'>
+			<header class='card-header'>
+				<p class='card-header-title'>{{post.title}}</p>
+				<button class='button fa-solid fa-heart is-small'>{{post.likes}}
+					likes</button>
+				<button class='button fa-solid fa-eye is-small'>{{post.views}}
+					views</button>
+				{{! <button class="card-header-icon" aria-label="more options">
+					<span class="icon">
+						<i class="fas fa-angle-down" aria-hidden="true"></i>
+					</span>
+				</button> }}
+			</header>
+			<div class='card-content'>
+				<div class='content'>
+					{{post.content}}
+					<br />
+					<!--this needs a helper to display the date time correctly. -->
+					<time class='content is-small is-pulled-right'>{{formatDate
+							post.date_created
+						}}</time>
+				</div>
+			</div>
+			<footer class='card-footer'>
+				<a
+					href='/posts/{{post.id}}'
+					id='like-post-{{post.id}}'
+					class='card-footer-item'
+				>Like</a>
+				<a
+					href='#'
+					id='author-post-{{post.id}}'
+					class='card-footer-item'
+				>See Author</a>
+				<a
+					href='#'
+					is='report-post-{{post.id}}'
+					class='card-footer-item'
+				>Report</a>
+			</footer>
+		</div>
+	{{/each}}
 </div>
-  {{/each}}
-  
-  <div class="container">
-    <h3 class="">
-      
-    </h3>
-    <p>
-      
-    </p>
-  
+
+<div class='container'>
+	<h3 class=''>
+
+	</h3>
+	<p>
+
+	</p>
+
 </div>
