@@ -22,7 +22,13 @@ const commentSubmitBtnHandler = async (event) => {
 	console.log(userId);
 	console.log(postId);
 	console.log(content);
-	newComment(userId, content, postId);
+
+	// form validation
+	if (content) {
+		newComment(userId, content, postId);
+	} else {
+		alert('Please provide content for your comment');
+	}
 };
 
 document
