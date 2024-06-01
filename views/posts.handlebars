@@ -1,14 +1,26 @@
-{{log this}}
+{{!-- {{log posts}} --}}
 
 <div class='container'>
 	{{#each posts as |post|}}
-		<div class='card'>
+		<div class='card mb-3'>
 			<header class='card-header'>
-				<p class='card-header-title'>{{post.title}}</p>
-				<button class='button fa-solid fa-heart is-small'>{{post.likes}}
-					likes</button>
-				<button class='button fa-solid fa-eye is-small'>{{post.views}}
-					views</button>
+				<p class='card-header-title'>
+					<a href='/posts/{{post.id}}'>
+						{{post.title}}
+						|
+						{{post.user.username}}
+					</a>
+				</p>
+				<a href='/posts/{{post.id}}'>
+					<button class='button fa-solid fa-heart is-small'>
+						{{post.likes}}
+						likes</button>
+				</a>
+				<a href='/posts/{{post.id}}'>
+					<button class='button fa-solid fa-eye is-small'>
+						{{post.views}}
+						views</button>
+				</a>
 				{{! <button class="card-header-icon" aria-label="more options">
 					<span class="icon">
 						<i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -25,7 +37,7 @@
 						}}</time>
 				</div>
 			</div>
-			<footer class='card-footer'>
+			{{!-- <footer class='card-footer'>
 				<a
 					href='/posts/{{post.id}}'
 					id='like-post-{{post.id}}'
@@ -41,12 +53,12 @@
 					is='report-post-{{post.id}}'
 					class='card-footer-item'
 				>Report</a>
-			</footer>
+			</footer> --}}
 		</div>
 	{{/each}}
 </div>
 
-<div class='container'>
+{{!-- <div class='container'>
 	<h3 class=''>
 
 	</h3>
@@ -54,4 +66,4 @@
 
 	</p>
 
-</div>
+</div> --}}
