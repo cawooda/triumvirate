@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models');
+const { Post, Comment, User, Media } = require('../../models');
 
 // import custom middleware
 const isLoggedIn = require('../../utils/isLoggedIn');
@@ -30,6 +30,7 @@ router.get('/:id', async (req, res) => {
 				include: User,
 			},
 			User,
+			Media,
 		],
 	});
 
