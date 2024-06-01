@@ -25,7 +25,8 @@ const commentSubmitBtnHandler = async (event) => {
 
 	// form validation
 	if (content) {
-		newComment(userId, content, postId);
+		await newComment(userId, content, postId);
+		document.location.reload();
 	} else {
 		alert('Please provide content for your comment');
 	}
