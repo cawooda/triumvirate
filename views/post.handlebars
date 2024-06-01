@@ -1,52 +1,99 @@
-{{log this}}
+{{log post}}
 
 <div class='container'>
-  <div class="card">
-  <header class="card-header">
-    <p class="card-header-title">{{post.title}}</p>
-    <button class='button fa-solid fa-heart is-small'>{{post.likes}} likes</button>
-    <button class='button fa-solid fa-eye is-small'>{{post.views}} views</button>
-    {{!-- <button class="card-header-icon" aria-label="more options">
+	<div class='card m-3'>
+		<header class='card-header'>
+			<p class='card-header-title'>{{post.title}}
+				|
+				{{post.user.username}}</p>
+			<button class='button fa-solid fa-heart is-small'>{{post.likes}}
+				likes</button>
+			<button class='button fa-solid fa-eye is-small'>{{post.views}}
+				views</button>
+			{{! <button class="card-header-icon" aria-label="more options">
       <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
-    </button> --}}
-  </header>
-    <div class="card-content">
-      <div class="content">
-        {{post.content}}
-        <br />
-        <!--this needs a helper to display the date time correctly. -->
-        <time class="content is-small is-pulled-right">{{formatDate post.date_created}}</time>
-      </div>
-    </div>
+    </button> }}
+		</header>
+		<div class='card-content'>
+			<div class='content'>
+				{{post.content}}
+				<br />
+				<!--this needs a helper to display the date time correctly. -->
+				<time class='content is-small is-pulled-right'>{{formatDate
+						post.date_created
+					}}</time>
+			</div>
+		</div>
 
-  <footer class="card-footer">
-    <div class="content">
-      <h6>Comments</h6>
-      {{#each post.comments as |comment| }}
-        <p>{{comment.content}}</p> 
-      {{/each}}
-      <br />
-    </div>
-  
+		{{!-- <footer class='card-footer'>
+			<div class='content'>
+				<h6>Comments</h6>
+				{{#each post.comments as |comment|}}
+					<p>{{comment.content}}</p>
+					<p>Posted by
+						<strong>{{comment.user.username}}</strong>
+						on
+						{{formatDate comment.date_created}}</p>
+				{{/each}}
+				<br />
+			</div>
+		</footer> --}}
+
+	</div>
 </div>
-  </footer>
+
+<div class='container'>
+	<div class='card m-3'>
+		<header class='card-header'>
+			<p class='card-header-title'>
+				Comments
+			</p>
+		</header>
+	</div>
+
+	{{#each post.comments as |comment|}}
+		<div class='card m-3'>
+			<div class="card-content">
+			<p>{{comment.content}}</p>
+			<p>Posted by
+				<strong>{{comment.user.username}}</strong>
+				on
+				{{formatDate comment.date_created}}</p>
+			</div>
+		</div>
+	{{/each}}
 </div>
-  
-  <div class="container">
-      <form>
-    <div class="field">
-    <label class="label">New Comment</label>
-    <div class="control">
-      <input id="comment-input" class="input" type="text" placeholder="i think that...">
-      <button id="comment-submit-btn" data-user="{{user_id}}" data-post={{post.id}} class="button">Submit</button>
-    </div>
-    <script src='/js/comment.js'></script>
-  </form>
-    
-    <p>
-      
-    </p>
-  
-</div>
+
+{{#if logged_in}}
+	<div class='container'>
+		<div class='card m-3'>
+			<header class='card-header'>
+				<p class='card-header-title'>New Comment</p>
+			</header>
+			<div class='card-content'>
+				<form>
+					<div class='field'>
+						{{! <label class='label'>New Comment</label> }}
+						<div class='control'>
+							<input
+								id='comment-input'
+								class='input mb-2'
+								type='text'
+								placeholder='i think that...'
+							/>
+							<button
+								id='comment-submit-btn'
+								data-user='{{user_id}}'
+								data-post={{post.id}}
+								class='button'
+							>Submit</button>
+						</div>
+					</div>
+					<script src='/js/comment.js'></script>
+				</form>
+			</div>
+		</div>
+	</div>
+{{/if}}
