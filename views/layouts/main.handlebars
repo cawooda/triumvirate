@@ -1,4 +1,4 @@
-{{log this}}
+{{!-- {{log this}} --}}
 <html>
 	<head>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -12,12 +12,11 @@
 			href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
 		/>
 		
-	<style>
-    .no-border {
-      	border: none !important;
-    	}
-  </style>
-
+		<style>
+			.no-border {
+				border: none !important;
+			}
+		</style>
 	</head>
 	<header>
 		<nav class="navbar has-background-primary is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
@@ -26,19 +25,10 @@
 				<img class='is-medium' src='/assets/images/popchat.png'>
 				</a>
 			</div>
-  		</nav>
+		</nav>
 		{{> menu-details}}
 	</header>
 	<body>
-		{{!-- if user is logged in render logout button --}}
-		{{!-- else render logout button --}}
-		{{#if logged_in}}
-		<button type="button" id="logout-btn">Logout</button>
-		<script src="/js/logoutBtn.js"></script>
-		{{else}}
-		<button type="button" id="login-btn">Login</button>
-		<script src="/js/loginBtn.js"></script>
-		{{/if}}
 
 		{{{body}}}
 

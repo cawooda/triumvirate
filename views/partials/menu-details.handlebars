@@ -1,6 +1,35 @@
-<div class='buttons is-centered no-border'>
+{{! <div class='buttons is-centered no-border'>
 	<a href='/'><li class='button fa-solid fa-list is-large'></li></a>
 	<a><li class='button fa-solid fa-search is-large'></li></a>
 	<a href='/profile'><li class='button fa-solid fa-user is-large'></li></a>
 	<a href='/chats'><li class='button fa-solid fa-comments is-large'></li></a>
+</div> }}
+
+<div class='buttons is-centered no-border mt-3'>
+	<a href='/'>
+		<li class='navbar-item fa-solid fa-home fa-2xl'></li>
+	</a>
+	<a>
+		<li class='navbar-item fa-solid fa-search fa-2xl'></li>
+	</a>
+	<a href='/posts/create-post'>
+		<li class='navbar-item fa-solid fa-plus fa-2xl'></li>
+	</a>
+	<a href='/profile'>
+		<li class='navbar-item fa-solid fa-user fa-2xl'></li>
+	</a>
+	<a href='/chats'>
+		<li class='navbar-item icon fa-solid fa-comments fa-2xl'></li>
+	</a>
+</div>
+{{! if user is logged in render logout button }}
+{{! else render logout button }}
+<div class='container my-2'>
+	{{#if logged_in}}
+		<button type='button' id='logout-btn'>Logout</button>
+		<script src='/js/logoutBtn.js'></script>
+	{{else}}
+		<button type='button' id='login-btn'>Login</button>
+		<script src='/js/loginBtn.js'></script>
+	{{/if}}
 </div>
