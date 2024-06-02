@@ -20,15 +20,12 @@
 		</header>
 		<div class='card-image'>
 			<figure class='image'>
-				{{!-- <iframe
+				<iframe
 					src='/uploads/{{post.medium.filename}}'
+					width='640'
+					height='360'
 					frameborder='0'
-				></iframe> --}}
-
-				<img
-					src='{{post.medium.path}}'
-					alt='{{post.medium.filename}}'
-				/>
+				></iframe>
 			</figure>
 		</div>
 		<div class='card-content'>
@@ -41,21 +38,6 @@
 					}}</time>
 			</div>
 		</div>
-
-		{{!-- <footer class='card-footer'>
-			<div class='content'>
-				<h6>Comments</h6>
-				{{#each post.comments as |comment|}}
-					<p>{{comment.content}}</p>
-					<p>Posted by
-						<strong>{{comment.user.username}}</strong>
-						on
-						{{formatDate comment.date_created}}</p>
-				{{/each}}
-				<br />
-			</div>
-		</footer> --}}
-
 	</div>
 </div>
 
@@ -90,7 +72,6 @@
 			<div class='card-content'>
 				<form>
 					<div class='field'>
-						{{! <label class='label'>New Comment</label> }}
 						<div class='control'>
 							<input
 								id='comment-input'
