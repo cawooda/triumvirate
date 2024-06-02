@@ -10,11 +10,13 @@ const logoutBtnHandler = async (event) => {
 
 	// if request successful redirect to homepage else alert
 	if (response.ok) {
-		document.location.replace('/');
+		document.location.assign('/');
 	} else {
 		alert('Failed to logout.');
 	}
 };
 
 // event listener for logout button
-document.querySelector('#logout-btn').addEventListener('click', logoutBtnHandler);
+document
+	.querySelector('#logout-btn')
+	.addEventListener('click', logoutBtnHandler);
