@@ -1,0 +1,56 @@
+<button
+	class='button fa-solid fa-edit is-small js-modal-trigger'
+	data-user='{{user_id}}'
+	data-target='{{post.id}}'
+>
+	edit
+</button>
+<div id='edit-post' class='modal'>
+	<div class='modal-background'></div>
+
+	<div class='modal-content'>
+		<form class='form box has-background-white block'>
+			<div class='field block'>
+				<label class='label'>Post Content</label>
+				<div class='control'>
+					<input
+						id='post-update-input'
+						class='textarea'
+						type='text'
+						placeholder='Text input'
+					/>
+					<div class='file block'>
+						<label class='file-label'>
+							<input
+								class='file-input'
+								type='file'
+								name='fileName'
+								{{! insert file name here }}
+							/>
+							<span class='file-cta'>
+								<span class='file-icon'>
+									<i class='fas fa-upload'></i>
+								</span>
+								<span class='file-label'> Choose a file… </span>
+							</span>
+						</label>
+					</div>
+					<button
+						id='post-update-submit-btn'
+						data-user='{{user_id}}'
+						data-post={{post.id}}
+						class='button'
+					>Submit</button>
+
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+	<button class='modal-close is-large' aria-label='close'></button>
+</div>
+
+<script src='/js/edit-post.js'>
+
+</script>

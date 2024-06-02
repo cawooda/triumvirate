@@ -6,6 +6,7 @@
     <p class="card-header-title">{{post.title}}</p>
     <button class='button fa-solid fa-heart is-small'>{{post.likes}} likes</button>
     <button class='button fa-solid fa-eye is-small'>{{post.views}} views</button>
+    {{> edit-post}}
     {{!-- <button class="card-header-icon" aria-label="more options">
       <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -40,7 +41,7 @@
     <label class="label">New Comment</label>
     <div class="control">
       <input id="comment-input" class="input" type="text" placeholder="i think that...">
-      <button id="comment-submit-btn" data-user="{{user_id}}" data-post={{post.id}} class="button">Submit</button>
+      <button id="comment-submit-btn" data-user="{{user_id}}" data-post="{{post.id}}" class="button">Submit</button>
     </div>
     <script src='/js/comment.js'></script>
   </form>
