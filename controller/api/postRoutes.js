@@ -69,7 +69,7 @@ router.post('/', upload.single('upload'), async (req, res) => {
 		let formattedPath = `${req.file.path.replace(/\\/g, '/')}`;
 		formattedPath = formattedPath.replace('public', '');
 		console.log(formattedPath);
-		
+
 		// create new Media object for uploaded file
 		const newMedia = await Media.create({
 			filename: req.file.filename,
@@ -94,6 +94,10 @@ router.delete('/:id', async (req, res) => {
 			where: {
 				id,
 			},
+		});
+
+		res.status(200).json({
+			message: 'successfully deleted blog.',
 		});
 	} catch (error) {
 		console.log(
