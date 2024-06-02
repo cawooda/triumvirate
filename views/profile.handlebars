@@ -37,23 +37,28 @@
 						}}</time>
 				</div>
 			</div>
-			{{!-- <footer class='card-footer'>
-				<a
-					href='/posts/{{post.id}}'
-					id='like-post-{{post.id}}'
-					class='card-footer-item'
-				>Like</a>
-				<a
-					href='#'
-					id='author-post-{{post.id}}'
-					class='card-footer-item'
-				>See Author</a>
-				<a
-					href='#'
-					is='report-post-{{post.id}}'
-					class='card-footer-item'
-				>Report</a>
-			</footer> --}}
+			<footer class='card-footer'>
+				<div class='field is-grouped m-3'>
+					<div class='control'>
+						<button
+							class='button is-primary'
+							id='edit-btn'
+							data-user-id='{{user_id}}'
+							data-post-id='{{post.id}}'
+						>Edit Post</button>
+					</div>
+					<div class='control'>
+						<button
+							class='button is-link is-danger'
+							id='delete-btn'
+							data-post-id='{{post.id}}'
+						>Delete</button>
+					</div>
+				</div>
+			</footer>
 		</div>
 	{{/each}}
+	{{#if posts}}
+		<script src='/js/editDelete.js'></script>
+	{{/if}}
 </div>
