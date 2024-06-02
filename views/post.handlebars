@@ -6,9 +6,11 @@
 			<p class='card-header-title'>{{post.title}}
 				|
 				{{post.user.username}}</p>
-			<button class='button fa-solid fa-heart is-small'> {{post.likes}}
+			<button class='button fa-solid fa-heart is-small'>
+				{{post.likes}}
 				likes</button>
-			<button class='button fa-solid fa-eye is-small'> {{post.views}}
+			<button class='button fa-solid fa-eye is-small'>
+				{{post.views}}
 				views</button>
 			{{! <button class="card-header-icon" aria-label="more options">
       <span class="icon">
@@ -16,6 +18,18 @@
       </span>
     </button> }}
 		</header>
+		{{#if post.medium}}
+			<div class='card-image'>
+				<figure class='image'>
+					<iframe
+						src='/uploads/{{post.medium.filename}}'
+						width='640'
+						height='360'
+						frameborder='0'
+					></iframe>
+				</figure>
+			</div>
+		{{/if}}
 		<div class='card-content'>
 			<div class='content'>
 				{{post.content}}
@@ -26,21 +40,6 @@
 					}}</time>
 			</div>
 		</div>
-
-		{{!-- <footer class='card-footer'>
-			<div class='content'>
-				<h6>Comments</h6>
-				{{#each post.comments as |comment|}}
-					<p>{{comment.content}}</p>
-					<p>Posted by
-						<strong>{{comment.user.username}}</strong>
-						on
-						{{formatDate comment.date_created}}</p>
-				{{/each}}
-				<br />
-			</div>
-		</footer> --}}
-
 	</div>
 </div>
 
@@ -55,12 +54,12 @@
 
 	{{#each post.comments as |comment|}}
 		<div class='card m-3'>
-			<div class="card-content">
-			<p>{{comment.content}}</p>
-			<p>Posted by
-				<strong>{{comment.user.username}}</strong>
-				on
-				{{formatDate comment.date_created}}</p>
+			<div class='card-content'>
+				<p>{{comment.content}}</p>
+				<p>Posted by
+					<strong>{{comment.user.username}}</strong>
+					on
+					{{formatDate comment.date_created}}</p>
 			</div>
 		</div>
 	{{/each}}
@@ -75,7 +74,6 @@
 			<div class='card-content'>
 				<form>
 					<div class='field'>
-						{{! <label class='label'>New Comment</label> }}
 						<div class='control'>
 							<input
 								id='comment-input'

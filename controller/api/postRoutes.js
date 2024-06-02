@@ -64,19 +64,25 @@ router.post('/', upload.single('upload'), async (req, res) => {
 			content: req.body.content,
 			user_id: req.session.user_id,
 		});
+
+		// format filepath
+		let formattedPath = `${req.file.path.replace(/\\/g, '/')}`;
+		formattedPath = formattedPath.replace('public', '');
+		console.log(formattedPath);
 		
 		// create new Media object for uploaded file
 		const newMedia = await Media.create({
 			filename: req.file.filename,
 			original_name: req.file.originalname,
 			mimetype: req.file.mimetype,
-			path: req.file.path,
+			path: formattedPath,
 			size: req.file.size,
 			post_id: newPost.dataValues.id,
 		});
 
 		res.status(200).json([newPost, newMedia]);
 	} catch (error) {
+		console.log(error);
 		res.status(500).json(error);
 	}
 });
