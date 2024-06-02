@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
 
 	const posts = postData.map((post) => post.get({ plain: true }));
 
-	console.log('posts', posts);
-	//res.send('route home reached');
+	// console.log('posts', posts);
+	// res.send('route home reached');
 	res.render('posts', { posts, logged_in: req.session.logged_in });
 });
 

@@ -3,7 +3,7 @@ const loginBtnHandler = async (event) => {
 	// prevent default form behaivour
 	event.preventDefault();
 
-	document.location.replace('/users/login');
+	document.location.assign('/users/login');
 };
 
 // event listener for login button

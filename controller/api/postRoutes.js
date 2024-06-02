@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models');
+const { Post, Comment, User, Media } = require('../../models');
+
+// import multer upload utility
+const upload = require('../../utils/upload');
 
 const modelName = 'Post';
 
@@ -52,16 +55,46 @@ router.put('/:id', async (req, res) => {
 	}
 });
 
-router.post('/', async (req, res) => {
-	const body = req.body;
+// /api/posts route to create new post
+router.post('/', upload.single('upload'), async (req, res) => {
 	try {
-		Post.create(body);
-		console.log(`creating new  ${modelName} from ${body}`);
-		res.status(200).json(body);
+		// create array to send to response
+		const responseArr = [];
+
+		// create new Post object
+		const newPost = await Post.create({
+			title: req.body.title,
+			content: req.body.content,
+			user_id: req.session.user_id,
+		});
+
+		// push new Post object on response array
+		responseArr.push(newPost);
+
+		// if file uploaded format path and create Media object
+		if (req.file) {
+			// format filepath
+			let formattedPath = `${req.file.path.replace(/\\/g, '/')}`;
+			formattedPath = formattedPath.replace('public', '');
+			console.log(formattedPath);
+
+			// create new Media object for uploaded file
+			const newMedia = await Media.create({
+				filename: req.file.filename,
+				original_name: req.file.originalname,
+				mimetype: req.file.mimetype,
+				path: formattedPath,
+				size: req.file.size,
+				post_id: newPost.dataValues.id,
+			});
+
+			// push new Media object on response array
+			responseArr.push(newMedia);
+		}
+
+		res.status(200).json(responseArr);
 	} catch (error) {
-		console.log(
-			`ERROR: Get Requesting all ${modelName} and we've sent back the body you sent us`,
-		);
+		console.log(error);
 		res.status(500).json(error);
 	}
 });
@@ -74,12 +107,30 @@ router.delete('/:id', async (req, res) => {
 				id,
 			},
 		});
+
+		res.status(200).json({
+			message: 'successfully deleted blog.',
+		});
 	} catch (error) {
 		console.log(
 			`ERROR: DELETING ${modelName} with id ${id} and we've sent back the body you sent us`,
 		);
 		res.status(500).json(error);
 	}
+});
+
+// /api/posts/upload route to upload media to filesystem
+router.post('/upload', upload.single('upload'), (req, res) => {
+	console.log(req.body);
+	res.send('Uploaded successfully!');
+	// upload(req, res, (err) => {
+	// 	if (err) {
+	// 		res.status(500).json(error);
+	// 	} else {
+	// 		console.log(req.file);
+	// 		res.status(200).json(req.file);
+	// 	}
+	// });
 });
 
 module.exports = router;

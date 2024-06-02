@@ -23,7 +23,7 @@ const loginHandler = async (event) => {
 
 		// if request successful redirect to homepage else alert
 		if (response.ok) {
-			document.location.replace('/');
+			document.location.assign('/');
 		} else {
 			alert('Failed to login.');
 		}

@@ -1,7 +1,22 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models');
+const { Post, Comment, User, Media } = require('../../models');
+
+// import custom middleware
+const isLoggedIn = require('../../utils/isLoggedIn');
 
 const modelName = 'Post';
+
+// /posts/create-post route to render add new post form
+router.get('/create-post', isLoggedIn, async (req, res) => {
+	try {
+		// render create-post page
+		res.status(200).render('create-post', {
+			logged_in: req.session.logged_in,
+		});
+	} catch (error) {
+		res.status(500).json(error);
+	}
+});
 
 router.get('/:id', async (req, res) => {
 	console.log('req.params.id', req.params.id);
@@ -9,7 +24,14 @@ router.get('/:id', async (req, res) => {
 
 	const postData = await Post.findOne({
 		where: { id: postId },
-		include: Comment,
+		include: [
+			{
+				model: Comment,
+				include: User,
+			},
+			User,
+			Media,
+		],
 	});
 
 	const post = postData.get({ plain: true });
