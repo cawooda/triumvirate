@@ -18,16 +18,18 @@
       </span>
     </button> }}
 		</header>
-		<div class='card-image'>
-			<figure class='image'>
-				<iframe
-					src='/uploads/{{post.medium.filename}}'
-					width='640'
-					height='360'
-					frameborder='0'
-				></iframe>
-			</figure>
-		</div>
+		{{#if post.medium}}
+			<div class='card-image'>
+				<figure class='image'>
+					<iframe
+						src='/uploads/{{post.medium.filename}}'
+						width='640'
+						height='360'
+						frameborder='0'
+					></iframe>
+				</figure>
+			</div>
+		{{/if}}
 		<div class='card-content'>
 			<div class='content'>
 				{{post.content}}
