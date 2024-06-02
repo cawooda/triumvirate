@@ -1,17 +1,23 @@
+// get all edit-btns and delete-btns
+const editBtns = document.querySelectorAll('.edit-btn');
+const deleteBtns = document.querySelectorAll('.delete-btn');
+
 // event handler for edit-btn
 const editHandler = async (event) => {
 	// prevent default form behaviour
 	event.preventDefault();
 
 	// extract post id from data attribute
-	const postId = document.querySelector('#edit-btn').dataset.postId;
+	const postId = event.target.dataset.postId;
 
 	// change location to edit page for
-	document.location.replace(`/posts/edit/${postId}`);
+	document.location.assign(`/posts/edit/${postId}`);
 };
 
-// add event listener for edit-btn on click
-document.querySelector('#edit-btn').addEventListener('click', editHandler);
+// add event listeners to all edit-btns
+editBtns.forEach((editBtn) => {
+	editBtn.addEventListener('click', editHandler);
+});
 
 // event handler for delete-btn
 const deleteHandler = async (event) => {
@@ -19,7 +25,7 @@ const deleteHandler = async (event) => {
 	event.preventDefault();
 
 	// extract post id from data attribute
-	const postId = document.querySelector('#delete-btn').dataset.postId;
+	const postId = event.target.dataset.postId;
 
 	// send fetch delete request for the post
 	const response = await fetch(`/api/posts/${postId}`, {
@@ -33,5 +39,7 @@ const deleteHandler = async (event) => {
 	}
 };
 
-// add event listener for delete-btn on click
-document.querySelector('#delete-btn').addEventListener('click', deleteHandler);
+// add event listeners to all delete-btns
+deleteBtns.forEach((deleteBtn) => {
+	deleteBtn.addEventListener('click', deleteHandler);
+});
