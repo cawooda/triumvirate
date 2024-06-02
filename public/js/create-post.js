@@ -44,7 +44,11 @@ const createPostHandler = async (event) => {
 			body: formData,
 		});
 
-		console.log(uploadResponse);
+		if (uploadResponse.ok) {
+			document.location.assign('/users/profile');
+		} else {
+			alert('Failed to create post.');
+		}
 	}
 };
 

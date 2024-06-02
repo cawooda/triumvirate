@@ -11,7 +11,7 @@ router.get('/create-post', isLoggedIn, async (req, res) => {
 	try {
 		// render create-post page
 		res.status(200).render('create-post', {
-			loggedIn: req.session.logged_in,
+			logged_in: req.session.logged_in,
 		});
 	} catch (error) {
 		res.status(500).json(error);

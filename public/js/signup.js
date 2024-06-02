@@ -28,7 +28,7 @@ const signupHandler = async (event) => {
 
 		// if request successful redirect to hompage else alert
 		if (response.ok) {
-			document.location.replace('/');
+			document.location.assign('/');
 		} else {
 			alert('Failed to sign up.');
 		}

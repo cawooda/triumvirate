@@ -58,6 +58,9 @@ router.put('/:id', async (req, res) => {
 // /api/posts route to create new post
 router.post('/', upload.single('upload'), async (req, res) => {
 	try {
+		// create array to send to response
+		const responseArr = [];
+
 		// create new Post object
 		const newPost = await Post.create({
 			title: req.body.title,
@@ -65,22 +68,31 @@ router.post('/', upload.single('upload'), async (req, res) => {
 			user_id: req.session.user_id,
 		});
 
-		// format filepath
-		let formattedPath = `${req.file.path.replace(/\\/g, '/')}`;
-		formattedPath = formattedPath.replace('public', '');
-		console.log(formattedPath);
-		
-		// create new Media object for uploaded file
-		const newMedia = await Media.create({
-			filename: req.file.filename,
-			original_name: req.file.originalname,
-			mimetype: req.file.mimetype,
-			path: formattedPath,
-			size: req.file.size,
-			post_id: newPost.dataValues.id,
-		});
+		// push new Post object on response array
+		responseArr.push(newPost);
 
-		res.status(200).json([newPost, newMedia]);
+		// if file uploaded format path and create Media object
+		if (req.file) {
+			// format filepath
+			let formattedPath = `${req.file.path.replace(/\\/g, '/')}`;
+			formattedPath = formattedPath.replace('public', '');
+			console.log(formattedPath);
+
+			// create new Media object for uploaded file
+			const newMedia = await Media.create({
+				filename: req.file.filename,
+				original_name: req.file.originalname,
+				mimetype: req.file.mimetype,
+				path: formattedPath,
+				size: req.file.size,
+				post_id: newPost.dataValues.id,
+			});
+
+			// push new Media object on response array
+			responseArr.push(newMedia);
+		}
+
+		res.status(200).json(responseArr);
 	} catch (error) {
 		console.log(error);
 		res.status(500).json(error);
@@ -94,6 +106,10 @@ router.delete('/:id', async (req, res) => {
 			where: {
 				id,
 			},
+		});
+
+		res.status(200).json({
+			message: 'successfully deleted blog.',
 		});
 	} catch (error) {
 		console.log(

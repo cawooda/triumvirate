@@ -1,0 +1,64 @@
+{{!-- {{log posts}} --}}
+
+<div class='container' id="posts-container">
+	{{#each posts as |post|}}
+		<div class='card mb-3'>
+			<header class='card-header'>
+				<p class='card-header-title'>
+					<a href='/posts/{{post.id}}'>
+						{{post.title}}
+						|
+						{{post.user.username}}
+					</a>
+				</p>
+				<a href='/posts/{{post.id}}'>
+					<button class='button fa-solid fa-heart is-small'>
+						{{post.likes}}
+						likes</button>
+				</a>
+				<a href='/posts/{{post.id}}'>
+					<button class='button fa-solid fa-eye is-small'>
+						{{post.views}}
+						views</button>
+				</a>
+				{{! <button class="card-header-icon" aria-label="more options">
+					<span class="icon">
+						<i class="fas fa-angle-down" aria-hidden="true"></i>
+					</span>
+				</button> }}
+			</header>
+			<div class='card-content'>
+				<div class='content'>
+					{{post.content}}
+					<br />
+					<!--this needs a helper to display the date time correctly. -->
+					<time class='content is-small is-pulled-right'>{{formatDate
+							post.date_created
+						}}</time>
+				</div>
+			</div>
+			<footer class='card-footer'>
+				<div class='field is-grouped m-3'>
+					<div class='control'>
+						<button
+							class='button is-primary edit-btn'
+							id='edit-btn'
+							data-user-id='{{user_id}}'
+							data-post-id='{{post.id}}'
+						>Edit Post</button>
+					</div>
+					<div class='control'>
+						<button
+							class='button is-link is-danger delete-btn'
+							id='delete-btn'
+							data-post-id='{{post.id}}'
+						>Delete</button>
+					</div>
+				</div>
+			</footer>
+		</div>
+	{{/each}}
+	{{#if posts}}
+		<script src='/js/editDelete.js'></script>
+	{{/if}}
+</div>
