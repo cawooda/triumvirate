@@ -1,5 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Comment, Media } = require('../../models');
+
+// import custom middleware
+const isLoggedIn = require('../../utils/isLoggedIn');
 
 // /users/signup route to render signup page
 router.get('/signup', async (req, res) => {
@@ -9,7 +12,7 @@ router.get('/signup', async (req, res) => {
 			res.redirect('/');
 			return;
 		}
-		
+
 		// otherwise render signup page
 		res.status(200).render('signup');
 	} catch (error) {
@@ -25,7 +28,7 @@ router.get('/login', async (req, res) => {
 			res.redirect('/');
 			return;
 		}
-		
+
 		// otherwise render login page
 		res.status(200).render('login');
 	} catch (error) {
@@ -33,5 +36,29 @@ router.get('/login', async (req, res) => {
 	}
 });
 
-module.exports = router;
+// /users/profile route to render profile page
+router.get('/profile', isLoggedIn, async (req, res) => {
+	try {
+		// get all posts belonging to logged in user
+		const userData = await User.findByPk(req.session.user_id, {
+			include: Post,
+		});
 
+		// serialize data for rendering
+		const user = userData.get({ plain: true });
+
+		// extract just the posts to pass to render
+		const posts = user.posts;
+
+		// render profile page
+		res.render('profile', {
+			posts,
+			logged_in: req.session.logged_in,
+		});
+	} catch (error) {
+		console.log(error);
+		res.status(500).json(error);
+	}
+});
+
+module.exports = router;
