@@ -45,7 +45,10 @@ router.get('/profile', isLoggedIn, async (req, res) => {
 		});
 
 		// serialize data for rendering
-		const user = userData.get({ plain: true });
+		const user = userData.get({
+			plain: true,
+			order: [['date_created', 'DESC']],
+		});
 
 		// extract just the posts to pass to render
 		const posts = user.posts;
