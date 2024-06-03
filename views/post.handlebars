@@ -6,7 +6,11 @@
 			<p class='card-header-title'>{{post.title}}
 				|
 				{{post.user.username}}</p>
-			<button class='button fa-solid fa-heart is-small'>
+			<button
+				class='button fa-solid fa-heart is-small'
+				id='like-btn'
+				data-post-id='{{post.id}}'
+			>
 				{{post.likes}}
 				likes</button>
 			<button class='button fa-solid fa-eye is-small'>
@@ -17,6 +21,7 @@
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
     </button> }}
+			<script src='/js/likeBtn.js'></script>
 		</header>
 		{{#if post.medium}}
 			<div class='card-image'>
