@@ -23,34 +23,42 @@ router.get('/:id', async (req, res) => {
 	console.log('req.params.id', req.params.id);
 	const postId = req.params.id;
 
-	const postData = await Post.findOne({
-		where: { id: postId },
-		include: [
-			{
-				model: Comment,
-				include: User,
-			},
-			User,
-			Media,
-		],
-	});
-
-	// if post with given id found increment views
-	if (postData) {
-		await postData.increment('views', {
-			where: {
-				id: postId,
-			},
+	try {
+		const postData = await Post.findOne({
+			where: { id: postId },
+			include: [
+				{
+					model: Comment,
+					include: User,
+				},
+				User,
+				Media,
+			],
 		});
+
+		// if post with given id found increment views
+		if (postData) {
+			await postData.increment('views', {
+				where: {
+					id: postId,
+				},
+			});
+
+			const post = postData.get({ plain: true });
+
+			res.render('post', {
+				post,
+				logged_in: req.session.logged_in,
+				user_id: req.session.user_id,
+			});
+		} else {
+			res.status(404).json({
+				message: `There is no post with id: ${postId}`,
+			});
+		}
+	} catch (error) {
+		res.status(500).json(error);
 	}
-
-	const post = postData.get({ plain: true });
-
-	res.render('post', {
-		post,
-		logged_in: req.session.logged_in,
-		user_id: req.session.user_id,
-	});
 });
 
 module.exports = router;
