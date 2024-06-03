@@ -41,11 +41,17 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', upload.single('upload'), async (req, res) => {
 	const id = req.params.id;
 	const body = req.body;
-
+	console.log('body', req.body);
 	try {
+		// update Post object
+		const updatePost = await Post.update({
+			title: req.body.title,
+			content: req.body.content,
+			id: req.postId,
+		});
 		const post = await Post.update(body);
 
 		console.log(`updating ${modelName} by id ${id} with ${body}`);
@@ -60,6 +66,7 @@ router.put('/:id', async (req, res) => {
 
 // /api/posts route to create new post
 router.post('/', upload.single('upload'), async (req, res) => {
+	console.log('req body', req.body);
 	try {
 		// create array to send to response
 		const responseArr = [];

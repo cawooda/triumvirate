@@ -11,7 +11,7 @@ const editHandler = async (event) => {
 	const postId = event.target.dataset.postId;
 
 	// change location to edit page for
-	document.location.assign(`/posts/edit/${postId}`);
+	document.location.assign(`/posts/edit-post/${postId}`);
 };
 
 // add event listeners to all edit-btns
