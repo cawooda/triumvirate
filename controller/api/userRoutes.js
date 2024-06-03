@@ -12,6 +12,7 @@ router.post('/signup', async (req, res) => {
 			email: req.body.email,
 			password: req.body.password,
 		});
+		console.log(newUser.id);
 
 		// create session variables to store user id and logged in status
 		req.session.user_id = newUser.id;

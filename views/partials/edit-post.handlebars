@@ -1,31 +1,29 @@
 <button
 	class='button fa-solid fa-edit is-small js-modal-trigger'
 	data-user='{{user_id}}'
-	data-target='{{post.id}}'
->
+	data-target='{{post.id}}'>
 	edit
 </button>
 <div id='edit-post' class='modal'>
 	<div class='modal-background'></div>
 
 	<div class='modal-content'>
-		<form class='form box has-background-white block'>
-			<div class='field block'>
-				<label class='label'>Post Content</label>
-				<div class='control'>
-					<input
+		<form class='form box has-background-white'>
+			<div class='field'>
+				<label class='label'>{{post.title}}</label>
+				
+					<textarea
 						id='post-update-input'
-						class='textarea'
-						type='text'
-						placeholder='Text input'
-					/>
+						class='is-focused is-fullwidth'
+						rows='3'
+						data-text='{{post.content}}'
+					></textarea>
 					<div class='file block'>
 						<label class='file-label'>
 							<input
 								class='file-input'
 								type='file'
 								name='fileName'
-								{{! insert file name here }}
 							/>
 							<span class='file-cta'>
 								<span class='file-icon'>
@@ -38,19 +36,17 @@
 					<button
 						id='post-update-submit-btn'
 						data-user='{{user_id}}'
-						data-post={{post.id}}
+						data-post='{{post.id}}'
 						class='button'
 					>Submit</button>
 
-				</div>
+				
 			</div>
 
 		</form>
 	</div>
-
 	<button class='modal-close is-large' aria-label='close'></button>
+	</div>
 </div>
 
-<script src='/js/edit-post.js'>
-
-</script>
+<script src='/js/edit-post.js'></script>

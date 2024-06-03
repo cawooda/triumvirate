@@ -1,7 +1,12 @@
 const $postUpdateInput = document.querySelector('#post-update-input');
 
+const $target = document.querySelector('.modal');
+const $trigger = document.querySelector('.js-modal-trigger');
+
+$postUpdateInput.value = $postUpdateInput.dataset.text;
+
 async function updatePost(user, postContent, postId) {
-	const result = await fetch(`/api/posts${postId}`, {
+	const result = await fetch(`/api/posts/${postId}`, {
 		method: 'PUT',
 		body: JSON.stringify({
 			user_id: user,
@@ -12,6 +17,7 @@ async function updatePost(user, postContent, postId) {
 		},
 	});
 	console.log(result);
+	closeModal($target);
 }
 
 const postUpdateSubmitBtnHandler = async (event) => {
@@ -22,7 +28,7 @@ const postUpdateSubmitBtnHandler = async (event) => {
 	console.log(userId);
 	console.log(postId);
 	console.log(postContent);
-	newComment(userId, postContent, postId);
+	updatePost(userId, postContent, postId);
 	closeAllModals();
 };
 
@@ -39,14 +45,11 @@ function closeAllModals() {
 		closeModal($modal);
 	});
 }
-const $target = document.querySelector('.modal');
-const $trigger = document.querySelector('.js-modal-trigger');
+
 $trigger.addEventListener('click', (event) => {
 	console.log('modal Triggered by', event.target);
 	openModal($target);
 });
-
-console.log($trigger);
 
 (
 	document.querySelectorAll(

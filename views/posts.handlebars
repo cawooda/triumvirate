@@ -21,6 +21,9 @@
 						{{post.views}}
 						views</button>
 				</a>
+				{{#if loggedIn}}
+				{{> edit-post}}
+				{{/if}}
 				{{! <button class="card-header-icon" aria-label="more options">
 					<span class="icon">
 						<i class="fas fa-angle-down" aria-hidden="true"></i>

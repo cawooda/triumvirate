@@ -1,4 +1,4 @@
-{{log post}}
+
 
 <div class='container'>
 	<div class='card m-3'>
@@ -12,6 +12,8 @@
 			<button class='button fa-solid fa-eye is-small'>
 				{{post.views}}
 				views</button>
+			
+			{{> edit-post}}
 			{{! <button class="card-header-icon" aria-label="more options">
       <span class="icon">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -89,6 +91,7 @@
 							>Submit</button>
 						</div>
 					</div>
+					{{> edit-post}}
 					<script src='/js/comment.js'></script>
 				</form>
 			</div>
