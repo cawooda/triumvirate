@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Create Posts</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+</head>
+<body>
+	<section class="hero is-primary is-medium">
+		<div class="hero-body">
+			<div class="container">
+				<h2 class="title is-1 has-text-centered">
+					Create New Post
+				</h2>
+				<br>
+				<br>
+
+				<figure class="image is-3by1">
+				<img src="https://publer.io/_next/image?url=https%3A%2F%2Fcdn.publer.io%2Fbrand%2Fillustrations%2Ffeatures%2Fcurate-posts.png&w=3840&q=100" />
+			    </figure>
+
+			</div>
+		</div>
+	</section>
+<form id='post-form' enctype="multipart/form-data">
+	<section class="section">
+		<div class="container">
+			<div class="column is-centered">
+				<form class="box">
+					<div class="field has-text-centered">
+
+						<div class="field">
+							<lable class="label has-text-link is-large" for="title-input">Title</lable> 
+							<div class="control has-icon-left">
+								<input class="input" type='text' id='title-input'>
+							</div>
+						  </div>
+
+						  <div class="field">
+							<lable class="label has-text-link is-large" for="content-input">Content</lable> 
+							<div class="control has-icon-left">
+								<input class="input" type='text' style="height: 240px" id='content-input'>
+							</div>
+						  </div>
+
+
+						  <div class="field">
+							<lable class="label has-text-link is-large" for="email-input">Media</lable> 
+							<div class="control has-icon-left">
+								<input class="input" type='file' name="Upload" style="height: 100px" id='media-input'>
+							</div>
+						  </div>
+
+						  <button class="button is-link has-text-white is-large" type='submit'>Submit</button>					  
+					</div>
+			</div>
+		</div>
+	</section>
+	<section class="hero is-primary">
+		<div class="content has-text-centered has-text-black is-medium">
+			<p>
+				Designed by Triumvirate with ❤️
+			</p>
+		</div>
+	</section>
+</form>
+	<script src="/js/create-post.js"></script>	
+</body>
+</html>

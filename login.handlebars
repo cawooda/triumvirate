@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+</head>
+
+<body>  
+        <section class ="hero is-info is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-6-desktop">
+                            <form class="box">
+                                <div class="field has-text-centered">
+                                    <figure class="image is-2by1">
+                                        <img src="https://ph-files.imgix.net/3fd3609b-7939-45a8-9288-75d077549fa4.png?auto=compress&codec=mozjpeg&cs=strip&auto=format&fm=pjpg&w=1100&h=638&fit=max&dpr=1"/>
+                                      </figure>
+
+                                      <div class="field">
+                                        <lable class="label">Email</lable>
+                                        <div class="control has-icon-left">
+                                            <input class="input" type='text' id='email-input' placeholder="e.g. abc@gmail.com" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                      </div>
+
+                                      <div class="field">
+                                        <lable class="label">Password</lable>
+                                        <div class="control has-icon-left">
+                                            <input class="input" type="password" id='password-input' placeholder="******" required>
+                                            <span class="icon is-small is-left">
+                                                <i class="fa fa-lock"></i>
+                                            </span>
+                                        </div>
+                                      </div>
+
+                                      <div class="field">
+                                        <button class="button is-link">Login</button>
+                                      </div>
+                                        
+                                      <div class="field">
+                                        <button class="button is-success" type='submit' href='/users/signup'><a href='/users/signup'>New User Signup</a></button>
+                                      </div>  
+                                </div>
+                            </form>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hero is-light">
+            <div class="content has-text-centered has-text-black is-medium">
+                <p>
+                    Designed by Triumvirate with ❤️
+                </p>
+            </div>
+        </section>
+
+<script src='/js/login.js'></script>  
+</body>
+
+</html>
