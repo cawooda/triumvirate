@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { Post, Comment, User, Media } = require('../../models');
 
+// import custom middleware
+const isLoggedIn = require('../../utils/isLoggedIn');
+
 // import multer upload utility
 const upload = require('../../utils/upload');
 
@@ -131,6 +134,33 @@ router.post('/upload', upload.single('upload'), (req, res) => {
 	// 		res.status(200).json(req.file);
 	// 	}
 	// });
+});
+
+// /api/posts/like/:id route to increment a posts likes
+router.put('/like/:id', isLoggedIn, async (req, res) => {
+	const postId = req.params.id;
+
+	try {
+		// find post with given id
+		const postData = await Post.findByPk(postId);
+
+		// if post with given id found increment likes
+		if (postData) {
+			await postData.increment('likes', {
+				where: {
+					id: postId,
+				},
+			});
+
+			res.status(200).end();
+		} else {
+			res.status(404).json({
+				message: `There is no post with id: ${postId}`,
+			});
+		}
+	} catch (error) {
+		res.status(500).json(error);
+	}
 });
 
 module.exports = router;
