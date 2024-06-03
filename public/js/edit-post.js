@@ -1,11 +1,21 @@
 const $postUpdateInput = document.querySelector('#post-update-input');
 
 const $target = document.querySelector('.modal');
-const $trigger = document.querySelector('.js-modal-trigger');
+const $trigger = document.querySelector('.edit-btn');
+
+const file = document.querySelector('#media-update-input').files[0];
 
 $postUpdateInput.value = $postUpdateInput.dataset.text;
 
-async function updatePost(user, postContent, postId) {
+async function updatePost(user, postContent, postTitle, postId) {
+	const formData = new FormData();
+	formData.append('title', postTitle);
+	formData.append('content', postContent);
+
+	if (file) {
+		formData.append('upload', file);
+	}
+
 	const result = await fetch(`/api/posts/${postId}`, {
 		method: 'PUT',
 		body: JSON.stringify({

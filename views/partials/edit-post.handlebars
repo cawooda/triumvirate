@@ -1,9 +1,3 @@
-<button
-	class='button fa-solid fa-edit is-small js-modal-trigger'
-	data-user='{{user_id}}'
-	data-target='{{post.id}}'>
-	edit
-</button>
 <div id='edit-post' class='modal'>
 	<div class='modal-background'></div>
 
@@ -21,6 +15,7 @@
 					<div class='file block'>
 						<label class='file-label'>
 							<input
+								id='media-update-input'
 								class='file-input'
 								type='file'
 								name='fileName'
@@ -47,6 +42,5 @@
 	</div>
 	<button class='modal-close is-large' aria-label='close'></button>
 	</div>
+	
 </div>
-
-<script src='/js/edit-post.js'></script>

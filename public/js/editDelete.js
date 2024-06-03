@@ -6,7 +6,7 @@ const deleteBtns = document.querySelectorAll('.delete-btn');
 const editHandler = async (event) => {
 	// prevent default form behaviour
 	event.preventDefault();
-
+	console.log(event);
 	// extract post id from data attribute
 	const postId = event.target.dataset.postId;
 
