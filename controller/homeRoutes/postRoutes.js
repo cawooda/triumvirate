@@ -18,6 +18,7 @@ router.get('/create-post', isLoggedIn, async (req, res) => {
 	}
 });
 
+// /posts/:id to render individual post
 router.get('/:id', async (req, res) => {
 	console.log('req.params.id', req.params.id);
 	const postId = req.params.id;
@@ -33,6 +34,15 @@ router.get('/:id', async (req, res) => {
 			Media,
 		],
 	});
+
+	// if post with given id found increment views
+	if (postData) {
+		await postData.increment('views', {
+			where: {
+				id: postId,
+			},
+		});
+	}
 
 	const post = postData.get({ plain: true });
 
