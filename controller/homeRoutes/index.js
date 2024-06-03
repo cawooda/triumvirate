@@ -13,6 +13,7 @@ router.use('/users', userRoutes);
 router.get('/', async (req, res) => {
 	const postData = await Post.findAll({
 		include: [Comment, User],
+		order: [['date_created', 'DESC']],
 	});
 
 	const posts = postData.map((post) => post.get({ plain: true }));
