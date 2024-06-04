@@ -1,17 +1,32 @@
-<form id='post-form' enctype="multipart/form-data">
-	<h3>Create New Post</h3>
-	<div>
-		<label for='title-input'>Title</label>
-		<input type='text' id='title-input' />
+<form id='post-form' class='content form p-5 box' enctype='multipart/form-data'>
+	<h2>Create New Post</h2>
+	<div class='field'>
+		<label class='label' for='title-input'>Title</label>
+		<div class='control'>
+			<input class='input' type='text' id='title-input' />
+		</div>
+	</div>
+	<div class='field'>
+		<label class='label' for='content-input'>Content</label>
+		<div class='control'>
+			<input class='input' type='text' id='content-input' />
+		</div>
 	</div>
 	<div>
-		<label for='content-input'>Content</label>
-		<input type='text' id='content-input' />
+		<div class='file'>
+			<label class='file-label' for='media-input'>
+			<div class='control file'>
+				<input
+					class='is-info button'
+					type='file'
+					name='upload'
+					id='media-input'
+				/>
+			</div>
+		</div>
 	</div>
-	<div>
-		<label for="media-input">Media</label>
-		<input type="file" name="upload" id="media-input">
+	<div class='control pt-4'>
+		<button class='is-primary button' type='submit'>Submit</button>
 	</div>
-	<button type='submit'>Submit</button>
 </form>
-<script src="/js/create-post.js"></script>
+<script src='/js/create-post.js'></script>
