@@ -66,6 +66,8 @@ allowing the user to view their posts and edit or delete posts.
 
 [bcrypt](https://www.npmjs.com/package/bcrypt)
 
+[multer](https://www.npmjs.com/package/multer)
+
 [nodemon](https://nodemon.io/)
 
 Deployed using [Render](https://render.com/)
