@@ -1,5 +1,5 @@
-// event handler for create post form submit
-const createPostHandler = async (event) => {
+// event handler for edit post form submit
+const updatePostHandler = async (event) => {
 	// prevent default form behaviour
 	event.preventDefault();
 
@@ -40,12 +40,12 @@ const createPostHandler = async (event) => {
 		if (uploadResponse.ok) {
 			document.location.assign('/users/profile');
 		} else {
-			alert('Failed to create post.');
+			alert('Failed to update post.');
 		}
 	}
 };
 
-// add event listenerfor create new post form
+// add event listenerfor update new post form
 document
 	.querySelector('#post-form')
-	.addEventListener('submit', createPostHandler);
+	.addEventListener('submit', updatePostHandler);
