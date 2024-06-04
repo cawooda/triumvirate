@@ -39,12 +39,11 @@ allowing the user to view their posts and edit or delete posts.
 
 ### Screenshot
 
+![screenshot](./screenshot.png)
 
-![alt text](./screenshot.png)
+### Screenshot of deployed application:
 
-
-Screenshot of deployed application:
-![Deployed screenshot](./assets/images/deployed-screenshot.png)
+![Deployed screenshot](./render-screenshot.png)
 
 ## Features
 
