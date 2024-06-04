@@ -47,7 +47,9 @@ const createPostHandler = async (event) => {
 		if (uploadResponse.ok) {
 			document.location.assign('/users/profile');
 		} else {
-			alert('Failed to create post.');
+			alert(
+				'Failed to create post. Please make sure files are less than 50 MB!',
+			);
 		}
 	}
 };
