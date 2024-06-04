@@ -1,15 +1,30 @@
-<form id='post-form' class='content form p-5 box' enctype='multipart/form-data'>
-	<h2>Create New Post</h2>
+<form
+	id='post-form'
+	class='content form p-5 box'
+	data-post-id='{{post.id}}'
+	enctype='multipart/form-data'
+>
+	<h2>Update Post</h2>
 	<div class='field'>
 		<label class='label' for='title-input'>Title</label>
 		<div class='control'>
-			<input class='input' type='text' id='title-input' />
+			<input
+				class='input'
+				type='text'
+				value='{{post.title}}'
+				id='title-input'
+			/>
 		</div>
 	</div>
 	<div class='field'>
 		<label class='label' for='content-input'>Content</label>
 		<div class='control'>
-			<input class='input' type='text' id='content-input' />
+			<input
+				class='input'
+				type='text'
+				value='{{post.content}}'
+				id='content-input'
+			/>
 		</div>
 	</div>
 	<div>
@@ -26,7 +41,11 @@
 		</div>
 	</div>
 	<div class='control pt-4'>
-		<button class='is-primary button' type='submit'>Submit</button>
+		<button
+			class='is-primary button'
+			id='submit-btn'
+			type='submit'
+		>Submit</button>
 	</div>
 </form>
-<script src='/js/create-post.js'></script>
+<script src='/js/edit-post.js'></script>
