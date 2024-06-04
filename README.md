@@ -16,17 +16,35 @@ A multimedia forum for posting and uploading media.
 
 ## Installation Instructions
 
-1. npm i to install dependencies, 
-2. npm run start to start server
+This application requires Node.js installed on a server. The installation of the process is for most standard node.js installations.
+
+1. npm i to install dependencies. 
+2. using psql run \i schema.sql.
+3. ensure the .env is populated with the required info. from .env.example.
+4. use npm run seed to seed the project with data.
 
 ## Usage
-Used for logging in and uploading media to a multimedia forumn.
+User must navigate to http://localhost:3001
+The site contains an easy to use menu including:
+### Home 
+containing a list of all posts
+### New Post 
+allowing the user to create a new post
+### Profile  
+allowing the user to view their posts and edit or delete posts.
+
+## Deployed application
+
+[https://triumvirate.onrender.com](https://triumvirate.onrender.com)
 
 ### Screenshot
 
 
 ![alt text](./screenshot.png)
 
+
+Screenshot of deployed application:
+![Deployed screenshot](./assets/images/deployed-screenshot.png)
 
 ## Features
 
@@ -36,6 +54,32 @@ Used for logging in and uploading media to a multimedia forumn.
 
 ## Guidelines
 
+## Contributers
+
+[simonjbr](https://github.com/simonjbr)
+[simonjbr](https://github.com/simonjbr)
+[MelodyYan96](https://github.com/MelodyYan96)
+
+
+[Node.js](https://nodejs.org/en)
+
+[Express.js](https://expressjs.com/)
+
+[bcrypt](https://www.npmjs.com/package/bcrypt)
+
+[nodemon](https://nodemon.io/)
+
+Deployed using [Render](https://render.com/)
+
+[express-handlebars](https://www.npmjs.com/package/express-handlebars)
+
+[dotenv](https://www.npmjs.com/package/dotenv)
+
+[pg](https://www.npmjs.com/package/pg)
+
+[express-session](https://www.npmjs.com/package/express-session)
+
+[sequelize](https://www.npmjs.com/package/sequelize)
 
 ## Testing
 no testing at present
