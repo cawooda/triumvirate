@@ -1,17 +1,85 @@
-<form id="signup-form">
-	<h3>Signup</h3>
-	<div>
-		<label for="email-input">Email</label>
-		<input type="text" id="email-input">
+<form id='signup-form'>
+	<div class='hero-body'>
+		<div class='container'>
+			<div class='columns is-centered'>
+				<div class='column is-6-desktop'>
+					<form class='box'>
+						<div class='field has-text-centered'>
+							<figure class='image is-2by1'>
+								<img
+									src='https://nordvpn.com/wp-content/uploads/blog-featured-nordvpn-login-and-sign-up-process-explained-1.svg'
+								/>
+							</figure>
+
+							<div class='field'>
+								<lable
+									class='label has-text-link is-large'
+									for='email-input'
+								>Email</lable>
+								<div class='control has-icon-left'>
+									<input
+										class='input'
+										type='text'
+										id='email-input'
+										required
+									/>
+								</div>
+							</div>
+
+							<div class='field'>
+								<lable
+									for='username-input'
+									class='label has-text-link is-large'
+								>Username</lable>
+								<div class='control has-icon-left'>
+									<input
+										class='input'
+										type='text'
+										id='username-input'
+										required
+									/>
+								</div>
+							</div>
+
+							<div class='field'>
+								<lable
+									for='password-input'
+									class='label has-text-link is-large'
+								>Create Password</lable>
+								<div class='control has-icon-left'>
+									<input
+										class='input'
+										type='password'
+										id='password-input'
+										required
+									/>
+								</div>
+							</div>
+
+							<div class='field'>
+								<label class='checkbox'>
+									<input type='checkbox' />
+									Agree to Terms and Conditions
+								</label>
+							</div>
+
+							<div class='field'>
+								<button
+									class='button is-success'
+									type='submit'
+								>Create New Account</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<label for="username-input">Username</label>
-		<input type="text" id="username-input">
-	</div>
-	<div>
-		<label for="password-input">Password</label>
-		<input type="password" id="password-input">
-	</div>
-	<button type="submit">Sign Up</button>
+	<section class='hero is-primary'>
+		<div class='content has-text-centered has-text-black is-medium'>
+			<p> Designed by Triumvirate with ❤️ </p>
+		</div>
+	</section>
 </form>
-<script src="/js/signup.js"></script>
+<script src='/js/signup.js'></script>

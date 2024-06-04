@@ -18,6 +18,31 @@ router.get('/create-post', isLoggedIn, async (req, res) => {
 	}
 });
 
+router.get('/edit-post/:id', isLoggedIn, async (req, res) => {
+	const postId = req.params.id;
+	try {
+		const postData = await Post.findOne({
+			where: { id: postId },
+			include: [
+				{
+					model: Comment,
+					include: User,
+				},
+				User,
+				Media,
+			],
+		});
+		const post = postData.get({ plain: true });
+		res.render('edit-post', {
+			post,
+			logged_in: req.session.logged_in,
+			user_id: req.session.user_id,
+		});
+	} catch (error) {
+		res.status(500).json(error);
+	}
+});
+
 // /posts/:id to render individual post
 router.get('/:id', async (req, res) => {
 	console.log('req.params.id', req.params.id);

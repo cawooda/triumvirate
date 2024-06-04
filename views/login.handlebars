@@ -1,14 +1,22 @@
-<form id='login-form'>
-	<h3>Login</h3>
-	<div>
-		<label for='email-input'>Email</label>
-		<input type='text' id='email-input' />
+<form id='login-form' class='content form p-5 box'>
+	<h2>Login</h2>
+	<div class='field'>
+		<label class='label' for='email-input'>Email</label>
+		<div class='control'>
+			<input class='input' type='text' id='email-input' />
+		</div>
 	</div>
 	<div>
-		<label for='password-input'>Password</label>
-		<input type='password' id='password-input' />
+		<div class='field'>
+			<label class='label' for='password-input'>Password</label>
+			<div class='control'>
+				<input class='input' type='password' id='password-input' />
+			</div>
+		</div>
 	</div>
-	<button type='submit'>Login</button>
+	<div class='control pt-4'>
+		<button class='is-primary button' type='submit'>Login</button>
+	</div>
 	<a href='/users/signup'>Sign Up Instead</a>
 </form>
 <script src='/js/login.js'></script>
