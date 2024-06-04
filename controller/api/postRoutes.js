@@ -41,25 +41,53 @@ router.get('/:id', async (req, res) => {
 	}
 });
 
+// /api/post/:id PUT route to update posts
 router.put('/:id', upload.single('upload'), async (req, res) => {
-	const id = req.params.id;
-	const body = req.body;
-	console.log('body', req.body);
+	const postId = req.params.id;
 	try {
-		// update Post object
-		const updatePost = await Post.update({
-			title: req.body.title,
-			content: req.body.content,
-			id: req.postId,
-		});
-		const post = await Post.update(body);
+		// create array to send to response
+		const responseArr = [];
 
-		console.log(`updating ${modelName} by id ${id} with ${body}`);
-		res.status(200).json(post);
-	} catch (error) {
-		console.log(
-			`ERROR: Get Requesting update to ${modelName} and we've sent back the body you sent us`,
+		// update Post object
+		const updatePost = await Post.update(
+			{
+				title: req.body.title,
+				content: req.body.content,
+			},
+			{
+				where: {
+					id: postId,
+				},
+			},
 		);
+
+		// push updated Post object on response array
+		responseArr.push(updatePost);
+
+		// if file uploaded format path and create Media object
+		if (req.file) {
+			// format filepath
+			let formattedPath = `${req.file.path.replace(/\\/g, '/')}`;
+			formattedPath = formattedPath.replace('public', '');
+			console.log(formattedPath);
+
+			// create new Media object for uploaded file
+			const newMedia = await Media.create({
+				filename: req.file.filename,
+				original_name: req.file.originalname,
+				mimetype: req.file.mimetype,
+				path: formattedPath,
+				size: req.file.size,
+				post_id: postId,
+			});
+
+			// push new Media object on response array
+			responseArr.push(newMedia);
+		}
+
+		res.status(200).json(responseArr);
+	} catch (error) {
+		console.log('Error in PUT /api/posts/:id', error);
 		res.status(500).json(error);
 	}
 });
