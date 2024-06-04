@@ -41,7 +41,10 @@ router.get('/profile', isLoggedIn, async (req, res) => {
 	try {
 		// get all posts belonging to logged in user
 		const userData = await User.findByPk(req.session.user_id, {
-			include: Post,
+			include: {
+				model: Post,
+				include: User,
+			},
 		});
 
 		// serialize data for rendering
@@ -50,12 +53,9 @@ router.get('/profile', isLoggedIn, async (req, res) => {
 			order: [['date_created', 'DESC']],
 		});
 
-		// extract just the posts to pass to render
-		const posts = user.posts;
-
 		// render profile page
 		res.render('profile', {
-			posts,
+			user,
 			logged_in: req.session.logged_in,
 			user_id: req.session.user_id,
 		});
