@@ -3,18 +3,21 @@
 
 A multimedia forum for posting and uploading media.
 
-![license](https://img.shields.io/badge/license-MIT-blue)
+[![License: MIT](https://shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
 - [Guidelines](#guidelines)
+- [Contributers](#contributers)
+- [Technologies](#technologies)
 - [Testing](#testing)
+- [Questions](#questions)
 - [License](#license)
 
-## Installation Instructions
+## Installation
 
 This application requires Node.js installed on a server. The installation of the process is for most standard node.js installations.
 
@@ -39,11 +42,11 @@ allowing the user to view their posts and edit or delete posts.
 
 ### Screenshot
 
-![screenshot](./screenshot.png)
+![screenshot](./assets/images/screenshot.png)
 
 ### Screenshot of deployed application:
 
-![Deployed screenshot](./render-screenshot.png)
+![Deployed screenshot](./assets/images/render-screenshot.png)
 
 ## Features
 
@@ -56,9 +59,12 @@ allowing the user to view their posts and edit or delete posts.
 ## Contributers
 
 [simonjbr](https://github.com/simonjbr)
-[simonjbr](https://github.com/simonjbr)
+
+[cawooda](https://github.com/cawooda)
+
 [MelodyYan96](https://github.com/MelodyYan96)
 
+## Technologies
 
 [Node.js](https://nodejs.org/en)
 
@@ -90,19 +96,17 @@ no testing at present
 For questions, please contact <mailto:none> or 
 
 view github:
-(
-    [![General badge](https://img.shields.io/badge/Github-profile-green.svg)](https://github.com/github.com/simonjbr)
-    )
+[![General badge](https://img.shields.io/badge/Github-profile-green.svg)](https://github.com/github.com/simonjbr)
 
 ## License
 
-<https://choosealicense.com/licenses/MIT/>
+<https://opensource.org/licenses/MIT>
 
 
         
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) 2024 Simon Brown
   
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
